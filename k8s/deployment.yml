@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-deployment
+  labels:
+    app: spring-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-pod
+  template:
+    metadata:
+      labels:
+        app: spring-pod
+    spec:
+      containers:
+        - name: java-app
+          image: nginx:latest
+          ports:
+            - containerPort: 8080
+
