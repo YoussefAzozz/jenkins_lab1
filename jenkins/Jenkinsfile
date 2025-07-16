@@ -22,7 +22,7 @@ pipeline {
     stage('Docker') {
       agent { label 'vm-1' }  // Docker must run on the agent with Docker installed
       steps {
-        buildAndPushImage(DOCKER_IMAGE, DOCKER_CREDENTIALS_ID)
+        buildAndPushImage(DOCKER_IMAGE, DOCKER_CREDENTIALS_ID,"main")
       }
     }
 
