@@ -8,7 +8,6 @@ pipeline {
     DOCKER_CREDENTIALS_ID = '39efdf06-f686-4219-8117-a9efd32f0c16'  // Jenkins credential ID
     k8s_token_id = 'k8s-token'
     k8s_server_id = 'k8s-server'
-    namespace = 'namespace-environment'
   }
 
   stages {
@@ -44,7 +43,7 @@ pipeline {
     stage('Deploy') {
       agent { label 'jenkins-controller' }  // kubectl runs on the controller
       steps {
-        deployToK8s(k8s_token_id, k8s_server_id,namespace)
+        deployToK8s(k8s_token_id, k8s_server_id,"main")
       }
     }
   }
