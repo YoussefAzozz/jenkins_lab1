@@ -10,6 +10,7 @@ pipeline {
     k8s_server_id = 'k8s-server'
   }
 
+  stages{
     stage('Build') {
       agent { label 'vm-1' }
       steps {
