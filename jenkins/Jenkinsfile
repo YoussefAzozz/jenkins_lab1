@@ -43,7 +43,7 @@ pipeline {
     stage('Deploy') {
       agent { label 'jenkins-controller' }  // kubectl runs on the controller
       steps {
-        deployToK8s(k8s_token_id, k8s_server_id)
+        deployToK8s(k8s_token_id, k8s_server_id,"stage")
       }
     }
   }
