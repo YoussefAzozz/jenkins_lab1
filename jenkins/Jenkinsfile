@@ -6,7 +6,7 @@ pipeline {
   environment {
     DOCKER_IMAGE = 'yossefazozz/jenkins_ivolve'  // Docker image name with build number
     DOCKER_CREDENTIALS_ID = '39efdf06-f686-4219-8117-a9efd32f0c16'  // Jenkins credential ID
-    k8s_token_id = 'k8s-token'
+    k8s_token_id = credentials('stag-token')
     k8s_server_id = 'stag-token'
   }
 
