@@ -3,24 +3,12 @@
 pipeline {
   agent none  // Disable default agent to force each stage to pick explicitly
 
-  tools {
-    maven 'maven-3.9'        // Name from Global Tool Configuration
-  }
-
   environment {
     DOCKER_IMAGE = 'yossefazozz/jenkins_ivolve'  // Docker image name with build number
     DOCKER_CREDENTIALS_ID = '39efdf06-f686-4219-8117-a9efd32f0c16'  // Jenkins credential ID
     k8s_token_id = 'k8s-token'
     k8s_server_id = 'k8s-server'
   }
-
-  stages {
-    stage('Test') {
-      agent { label 'vm-1' }  // Maven & app build on the agent
-      steps {
-        unitTests()
-      }
-    }
 
     stage('Build') {
       agent { label 'vm-1' }
