@@ -48,9 +48,7 @@ pipeline {
     stage('Deploy') {
       agent { label 'jenkins-controller' }  // kubectl runs on the controller
       steps {
-        withCredentials([string(credentialsId: 'dev-token', variable: 'K8S_TOKEN')]) {
           deployToK8s("dev-token", k8s_server_id, "dev")
-        }
     }
   }
 }
